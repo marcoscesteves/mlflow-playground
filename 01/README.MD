@@ -17,7 +17,19 @@ mlflow ui
 ```
 O servidor será iniciado em `http://localhost:5000`
 
-![alt text](/img/tela1.png)
+![alt text](/img/tela1.jpeg)
+
+**IMPORTANTE**: Ao ser executado, o MLflow cria uma pasta de controle (por padrão chamada `mlruns`) no diretório atual, onde são armazenados logs, parâmetros, métricas e artefatos. Se você iniciar o MLflow  (`mlflow ui`) em outro diretório, a ferramenta **não exibirá** os dados que foram armazenados em outro local.
+
+Repare neste exemplo abaixo:
+
+![alt text](/img/tela2.jpeg)
+
+Repare que a pasta atual possui o diretório `mlruns`. É exatamente dentro desta pasta que ficam armazenados os runs que o MLFLow coleta. Repare na representação em árvore da pasta:
+
+![alt text](/img/imgMlRuns.jpeg)
+
+Mais pra frente veremos que é possível executar o MLflow a partir de qualquer diretório. Mas isso foge do escopo desta primeira atividade.
 
 ## 2. Conceitos e Exemplos Básicos
 
@@ -85,8 +97,8 @@ with mlflow.start_run():
 ```
 
 
-### Artifacts
-São arquivos anexados à sua execução. Podem ser datasets, modelos, imagens, etc.
+### Artefatos (Artifacts)
+São arquivos anexados à sua execução. Podem ser datasets, modelos, imagens, gráficos, arquivos csv etc.
 
 ```diff
 import mlflow

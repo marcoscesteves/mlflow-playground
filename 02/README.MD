@@ -15,6 +15,10 @@ Dá para anotar detalhes de como a execução foi realizada, facilitando ao trab
 ## Contexto humano
 Métricas dizem o que saiu; notas explicam por quê: hipótese, ajustes que você testou, bug observado, links da issue etc.
 
+## Autologging vs Registro Manual
+O MLflow possui um recurso chamado autologging (mlflow.autolog()) que registra parâmetros, métricas e até o modelo automaticamente para algumas bibliotecas (por exemplo, scikit-learn, keras, xgboost).
+Nesta atividade estamos fazendo o registro manual para entender a base. Mais pra frente vamos debater o autologging - que por ora foge do escopo.
+
 ## Projeto contendo mensagens no console e MLFlow:
 
 
