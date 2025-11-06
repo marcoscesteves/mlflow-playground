@@ -1,7 +1,5 @@
 # Trabalhando com múltiplas execuções no MLFlow
-É possível controlar variadas execuções dentro do MLFlow. 
-
-
+É possível controlar variadas execuções dentro do MLFlow. Repare no código abaixo, observando as linhas que foram ressaltadas:
 
 ```diff
 import mlflow
@@ -12,13 +10,13 @@ import random
 mlflow.set_experiment("03")
 
 # 2) Vamos simular algumas combinações de parâmetros
-configs = [
-    {"model_name": "baseline", "learning_rate": 0.01},
-    {"model_name": "baseline", "learning_rate": 0.02},
-    {"model_name": "baseline", "learning_rate": 0.05},
-]
++configs = [
++    {"model_name": "baseline", "learning_rate": 0.01},
++    {"model_name": "baseline", "learning_rate": 0.02},
++    {"model_name": "baseline", "learning_rate": 0.05},
++]
 
-for i, cfg in enumerate(configs, start=1):
++for i, cfg in enumerate(configs, start=1):
     # 3) Cada iteração é um run separado
     with mlflow.start_run(run_name=f"run_{i:02d}"):
         # params
@@ -45,7 +43,18 @@ Alguns pontos que devem ser observados neste código:
 
 1. Configs
 
-Definimos uma lista (chamada configs) que possui três elementos. O primeiro elemento seria: 
+Definimos uma lista (chamada configs) que possui três elementos. A lista inteira é essa:
+
+```diff
+configs = [
+    {"model_name": "baseline", "learning_rate": 0.01},
+    {"model_name": "baseline", "learning_rate": 0.02},
+    {"model_name": "baseline", "learning_rate": 0.05},
+]
+```
+
+
+ O primeiro elemento dessa lista é: 
 
 {"model_name": "baseline", "learning_rate": 0.01}
 
@@ -72,3 +81,5 @@ Então, por exemplo, no loop acima durante a primeira iteração teremos:
 - elemento: ({"model_name": "baseline", "learning_rate": 0.01})
 
 3. O objetivo desta atividade é notar as várias execuções dentro do MLFlow e a organização realizada na ferramenta.
+
+4. Tente executar a analisar os resultados já dentro do MLFlow.
